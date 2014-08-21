@@ -18,4 +18,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'spring'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'quiet_assets'
 end

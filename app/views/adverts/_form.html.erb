@@ -23,13 +23,15 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
-  <div class="field">
-    <%= f.label :category %> <br>
-    <% Category.all.each do |category| %>
-        <%= radio_button_tag "advert[category_id]", category.id, @advert.category_id == category.id, id: dom_id(category) %>
-        <%= label_tag dom_id(category), category.name %>
-    <% end %>
-  </div>
+  <% unless Category.all.empty? %>
+    <div class="field">
+      <%= f.label :category %> <br>
+      <% Category.all.each do |category| %>
+          <%= radio_button_tag "advert[category_id]", category.id, @advert.category_id == category.id, id: dom_id(category) %>
+          <%= label_tag dom_id(category), category.name %>
+      <% end %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :type_id %><br>
     <%= f.select(:type_id, Type.all.map { |type| [type.name, type.id] }) %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, path: ""
   resources :adverts
 
   root 'adverts#index'

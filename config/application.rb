@@ -27,7 +27,10 @@ module Billboard
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.generators do |g|
-      g.test_framework :rspec
+      g.test_framework  false
+      g.stylesheets     false
+      g.javascripts     false
+      g.helper          false
     end
   end
 end

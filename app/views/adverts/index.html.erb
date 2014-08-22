@@ -1,0 +1,36 @@
+<h1>Listing adverts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>User</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adverts.each do |advert| %>
+      <tr>
+        <td><%= advert.title %></td>
+        <td><%= advert.description %></td>
+        <td><%= advert.price %></td>
+        <td><%= advert.user %></td>
+        <td><%= advert.category %></td>
+        <td><%= advert.type %></td>
+        <td><%= link_to 'Show', advert %></td>
+        <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
+        <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Advert', new_advert_path, remote: true, "data-type" => "json", id:"add_advert" %>
+<div class="test"></div>

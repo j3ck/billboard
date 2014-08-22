@@ -1,4 +1,5 @@
 class AdvertsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
@@ -27,7 +28,7 @@ class AdvertsController < ApplicationController
   # POST /adverts
   # POST /adverts.json
   def create
-    @advert = Advert.new(advert_params)
+    @advert = current_user.adverts.build(advert_params)
 
     respond_to do |format|
       if @advert.save

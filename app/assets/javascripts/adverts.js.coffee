@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ->
+  $(document).on('ajax:success', '#add_advert', (e, data, textStatus, xhr) ->
+    $(this).hide()
+    $('.test').append(data.form_html)
+    $('#new_advert').hide().fadeIn()
+  )
+
+  $(document).on('click', '.close', () ->
+    $('#new_advert').fadeOut().remove()
+    $('#add_advert').fadeIn()
+  )

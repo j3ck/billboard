@@ -1,5 +1,6 @@
 class AdvertsController < ApplicationController
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /adverts
   # GET /adverts.json
@@ -15,6 +16,8 @@ class AdvertsController < ApplicationController
   # GET /adverts/new
   def new
     @advert = Advert.new
+    form_html = render_to_string( :partial => 'adverts/form', :formats => [:html], :locals => { :advert => @advert } )
+    respond_with :form_html => form_html
   end
 
   # GET /adverts/1/edit

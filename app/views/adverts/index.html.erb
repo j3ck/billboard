@@ -32,4 +32,5 @@
 
 <br>
 
-<%= link_to 'New Advert', new_advert_path %>
+<%= link_to 'New Advert', new_advert_path, remote: true, "data-type" => "json", id:"add_advert" %>
+<div class="test"></div>

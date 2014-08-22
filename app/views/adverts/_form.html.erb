@@ -32,7 +32,7 @@
   </div>
   <div class="field">
     <%= f.label :type_id %><br>
-    <%= f.text_field :type_id %>
+    <%= f.select(:type_id, Type.all.map { |type| [type.name, type.id] }) %>
   </div>
   <div class="actions">
     <%= f.submit %>

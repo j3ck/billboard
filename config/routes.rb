@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :types
+
   resources :categories
 
   devise_for :users, path: ""

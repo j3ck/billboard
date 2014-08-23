@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'thin'
 gem 'devise'
 gem 'paperclip', '~> 4.1'
+gem 'jquery.fileupload-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

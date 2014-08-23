@@ -16,7 +16,11 @@
       </div>
     <% end %>
 
-    <div class="images_wrapper"></div>
+    <div class="images_wrapper">
+      <% if @advert.images.present? %>
+          <%= render partial: 'images/image_preview', collection: @advert.images.order(id: :asc), as: 'image' %>
+      <% end %>
+    </div>
     <div class="field">
       <%= f.label :title %><br>
       <%= f.text_field :title %>

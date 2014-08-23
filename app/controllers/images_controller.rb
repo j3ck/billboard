@@ -6,6 +6,12 @@ class ImagesController < ApplicationController
     render :json => { :image_html => image_html }
   end
 
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+    render :json => { :image_id => @image.id }
+  end
+
 private
 
   def image_params

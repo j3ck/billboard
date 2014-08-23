@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :images, only: [:create, :destroy]
   resources :types
-
   resources :categories
 
   devise_for :users, path: ""

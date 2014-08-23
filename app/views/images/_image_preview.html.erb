@@ -1,0 +1,3 @@
+
+<%= image_tag image.data.url(:small) %>
+<%= hidden_field_tag "advert[image_ids][]", image.id, id: dom_id(image) %>

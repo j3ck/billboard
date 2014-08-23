@@ -1,3 +1,6 @@
+<%= form_for (@advert.images.build), html: { multipart: true } do |f| %>
+  <%= f.file_field :data, multiple: true, name: 'image[data]' %>
+<% end %>
 <%= form_for(@advert) do |f| %>
   <% if @advert.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +14,7 @@
     </div>
   <% end %>
 
+  <div class="images_wrapper"></div>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>

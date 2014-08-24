@@ -7,14 +7,14 @@ class Advert < ActiveRecord::Base
   has_many :images, dependent: :destroy
 
   aasm column: :state do
-    state :new, initial: true
+    state :template, initial: true
     state :moderated
     state :rejected
     state :published
     state :archive
 
     event :moderate do
-      transitions from: :new, to: :moderated
+      transitions from: :template, to: :moderated
     end
 
     event :rejected do
@@ -30,7 +30,7 @@ class Advert < ActiveRecord::Base
     end
 
     event :nevest do
-      transitions from: [:published, :rejected, :moderated, :archive], to: :new
+      transitions from: [:published, :rejected, :moderated, :archive], to: :template
     end
   end
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard' => 'dashboard#index'
+
   resources :images, only: [:create, :destroy]
   resources :types
   resources :categories

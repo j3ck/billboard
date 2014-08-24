@@ -1,7 +1,37 @@
 class AdvertsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_advert, only: [:show, :edit, :update, :destroy]
+  before_action :set_advert, only: [:in_moderate, :in_archive, :in_newest, :in_reject, :in_accert, :in_publish, :show, :edit, :update, :destroy]
   respond_to :json
+
+  def in_moderate
+    @advert.moderate! if @advert.may_moderate?
+    redirect_to dashboard_path(state: 'moderated')
+  end
+
+  def in_archive
+    @advert.archive! if @advert.may_in_archive?
+    redirect_to dashboard_path(state: 'archived')
+  end
+
+  def in_newest
+    @advert.newest! if @advert.may_newest?
+    redirect_to dashboard_path(state: 'template')
+  end
+
+  def in_reject
+    @advert.reject! if @advert.may_reject?
+    redirect_to dashboard_path(state: 'rejected')
+  end
+
+  def in_accept
+    @advert.accept! if @advert.may_accept?
+    redirect_to dashboard_path(state: 'accepted')
+  end
+
+  def in_publish
+    @advert.publish! if @advert.may_publish?
+    redirect_to dashboard_path(state: 'published')
+  end
 
   # GET /adverts
   # GET /adverts.json

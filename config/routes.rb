@@ -6,7 +6,16 @@ Rails.application.routes.draw do
   resources :categories
 
   devise_for :users, path: ""
-  resources :adverts
+  resources :adverts do
+    member do
+      get 'in_moderate'
+      get 'in_archive'
+      get 'in_newest'
+      get 'in_reject'
+      get 'in_accept'
+      get 'in_publish'
+    end
+  end
 
   root 'adverts#index'
   # The priority is based upon order of creation: first created -> highest priority.

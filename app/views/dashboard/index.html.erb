@@ -5,12 +5,12 @@
   <li><%= link_to "Published", dashboard_path(state: "published") %> <%= adverts_count("published") %></li>
   <li><%= link_to "Moderated", dashboard_path(state: "moderated") %> <%= adverts_count("moderated") %></li>
   <li><%= link_to "Rejected", dashboard_path(state: "rejected") %> <%= adverts_count("rejected") %></li>
-  <li><%= link_to "Archive", dashboard_path(state: "archive") %> <%= adverts_count("archive") %></li>
+  <li><%= link_to "Archive", dashboard_path(state: "archived") %> <%= adverts_count("archived") %></li>
 </ul>
 
 <% if @adverts.present? %>
   <% @adverts.each do |advert| %>
-    <%= advert.title %>
+    <%= render 'adverts/advert', advert: advert %>
   <% end %>
 <% else %>
   <p>empty</p>

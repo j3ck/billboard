@@ -19,6 +19,8 @@ gem 'paperclip', '~> 4.1'
 gem 'jquery.fileupload-rails'
 gem 'aasm'
 
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :admins, controllers: { sessions: "admin/sessions" }
   resources :images, only: [:create, :destroy]
-  resources :types
-  resources :categories
+  resources :types, only: [:index, :show]
+  resources :categories, only: [:index, :show]
 
   devise_for :users, path: ""
   resources :adverts do

@@ -9,7 +9,6 @@ class Advert < ActiveRecord::Base
   aasm column: :state do
     state :template, initial: true
     state :moderated
-    state :accepted
     state :rejected
     state :published
     state :archived
@@ -22,12 +21,8 @@ class Advert < ActiveRecord::Base
       transitions from: :moderated, to: :rejected
     end
 
-    event :accept do
-      transitions from: :moderated, to: :accepted
-    end
-
     event :publish do
-      transitions from: :accepted, to: :published
+      transitions from: :moderated, to: :published
     end
 
     event :archive do

@@ -1,6 +1,6 @@
 class AdvertsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_advert, only: [:in_moderate, :in_archive, :in_newest, :in_reject, :in_accert, :in_publish, :show, :edit, :update, :destroy]
+  before_action :set_advert, only: [:in_moderate, :in_archive, :in_newest, :in_reject, :in_publish, :show, :edit, :update, :destroy]
   respond_to :json
 
   def in_moderate
@@ -21,11 +21,6 @@ class AdvertsController < ApplicationController
   def in_reject
     @advert.reject! if @advert.may_reject?
     redirect_to dashboard_path(state: 'rejected')
-  end
-
-  def in_accept
-    @advert.accept! if @advert.may_accept?
-    redirect_to dashboard_path(state: 'accepted')
   end
 
   def in_publish

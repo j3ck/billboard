@@ -2,7 +2,9 @@
   <%= advert.title %>
   <%= advert.description %>
   <%= advert.price %>
-  <%= advert.category.name %>
+  <% if advert.category.present? %>
+    <%= advert.category.name %>
+  <% end %>
   <%= advert.type.name %>
   <%= link_to "Publish", in_publish_admin_advert_path(advert) %>
   <%= link_to "Reject", in_reject_admin_advert_path(advert) %>

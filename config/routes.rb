@@ -27,6 +27,11 @@ Rails.application.routes.draw do
         get 'in_publish'
       end
     end
+    resources :users do
+      member do
+        get 'user_adverts_with_state'
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

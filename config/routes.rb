@@ -21,6 +21,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories, only: [:index, :new, :edit, :create, :update]
+    resources :adverts, only: :index do
+      member do
+        get 'in_reject'
+        get 'in_publish'
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

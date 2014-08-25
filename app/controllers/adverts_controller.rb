@@ -1,6 +1,6 @@
 class AdvertsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_advert, only: [:in_moderate, :in_archive, :in_newest, :in_reject, :in_publish, :show, :edit, :update, :destroy]
+  before_action :set_advert, only: [:in_moderate, :in_archive, :in_newest, :show, :edit, :update, :destroy]
   respond_to :json
 
   def in_moderate
@@ -16,16 +16,6 @@ class AdvertsController < ApplicationController
   def in_newest
     @advert.newest! if @advert.may_newest?
     redirect_to adverts_path(state: 'template')
-  end
-
-  def in_reject
-    @advert.reject! if @advert.may_reject?
-    redirect_to adverts_path(state: 'rejected')
-  end
-
-  def in_publish
-    @advert.publish! if @advert.may_publish?
-    redirect_to adverts_path(state: 'published')
   end
 
   # GET /adverts

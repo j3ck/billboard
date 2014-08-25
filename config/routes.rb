@@ -11,9 +11,6 @@ Rails.application.routes.draw do
       get 'in_moderate'
       get 'in_archive'
       get 'in_newest'
-      get 'in_reject'
-      get 'in_accept'
-      get 'in_publish'
     end
   end
 

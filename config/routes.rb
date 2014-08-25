@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins, controllers: { sessions: "admin/sessions" }
   resources :images, only: [:create, :destroy]
   resources :types
   resources :categories
@@ -17,6 +18,22 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
+
+  namespace :admin do
+    resources :categories, only: [:index, :new, :edit, :create, :update]
+    resources :adverts, only: :index do
+      member do
+        get 'in_reject'
+        get 'in_publish'
+      end
+    end
+    resources :users do
+      member do
+        get 'user_adverts_with_state'
+      end
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

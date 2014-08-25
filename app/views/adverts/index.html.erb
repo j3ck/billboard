@@ -1,5 +1,13 @@
 <h1>Listing adverts</h1>
 
+<ul>
+  <li><%= link_to "Newest", adverts_path(state: "template") %> <%= adverts_count("template") %></li>
+  <li><%= link_to "Published", adverts_path(state: "published") %> <%= adverts_count("published") %></li>
+  <li><%= link_to "Moderated", adverts_path(state: "moderated") %> <%= adverts_count("moderated") %></li>
+  <li><%= link_to "Rejected", adverts_path(state: "rejected") %> <%= adverts_count("rejected") %></li>
+  <li><%= link_to "Archive", adverts_path(state: "archived") %> <%= adverts_count("archived") %></li>
+</ul>
+
 <table>
   <thead>
     <tr>
@@ -25,6 +33,7 @@
         <td><%= link_to 'Show', advert %></td>
         <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
         <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= render 'adverts/shared/events', advert: advert %></td>
       </tr>
     <% end %>
   </tbody>

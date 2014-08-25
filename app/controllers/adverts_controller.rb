@@ -5,33 +5,36 @@ class AdvertsController < ApplicationController
 
   def in_moderate
     @advert.moderate! if @advert.may_moderate?
-    redirect_to dashboard_path(state: 'moderated')
+    redirect_to adverts_path(state: 'moderated')
   end
 
   def in_archive
     @advert.archive! if @advert.may_in_archive?
-    redirect_to dashboard_path(state: 'archived')
+    redirect_to adverts_path(state: 'archived')
   end
 
   def in_newest
     @advert.newest! if @advert.may_newest?
-    redirect_to dashboard_path(state: 'template')
+    redirect_to adverts_path(state: 'template')
   end
 
   def in_reject
     @advert.reject! if @advert.may_reject?
-    redirect_to dashboard_path(state: 'rejected')
+    redirect_to adverts_path(state: 'rejected')
   end
 
   def in_publish
     @advert.publish! if @advert.may_publish?
-    redirect_to dashboard_path(state: 'published')
+    redirect_to adverts_path(state: 'published')
   end
 
   # GET /adverts
   # GET /adverts.json
   def index
-    @adverts = Advert.all
+    unless params[:state].present?
+      params[:state] = 'published'
+    end
+    @adverts = current_user.adverts.where(state: params[:state])
   end
 
   # GET /adverts/1

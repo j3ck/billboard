@@ -1,0 +1,9 @@
+<h3>Home</h3>
+
+<% if @adverts.present? %>
+  <% @adverts.each do |advert| %>
+    <%= render 'adverts/advert', advert: advert %>
+  <% end %>
+<% else %>
+  <p>empty</p>
+<% end %>

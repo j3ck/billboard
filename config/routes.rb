@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   namespace :admin do
-
+    resources :categories, only: [:index, :new, :edit, :create, :update]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

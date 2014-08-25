@@ -64,6 +64,7 @@ class AdvertsController < ApplicationController
   def update
     respond_to do |format|
       if @advert.update(advert_params)
+        @advert.newest!
         format.html { redirect_to @advert, notice: 'Advert was successfully updated.' }
         format.json { render :show, status: :ok, location: @advert }
       else

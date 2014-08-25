@@ -38,4 +38,12 @@ class Advert < ActiveRecord::Base
       transitions from: [:published, :rejected, :moderated, :archived], to: :template
     end
   end
+
+
+  def self.to_archive_old_adverts
+    @adverts = Advert.where('state = ? AND published_at <= ?', 'published', 1.day.ago )
+    @adverts.find_each do |advert|
+      advert.archive!
+    end
+  end
 end

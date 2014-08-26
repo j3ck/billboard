@@ -1,5 +1,5 @@
 class Admin::AdvertsController < ApplicationController
-  before_action :authenticate_admin!
+  load_and_authorize_resource
   before_action :set_advert, only: [:in_reject, :in_publish]
 
   def in_reject

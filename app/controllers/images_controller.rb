@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  load_and_authorize_resource
   def create
     @image = Image.create(image_params)
     @image.save

@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :authenticate_admin!
+  load_and_authorize_resource
   before_action :set_category, only: [:edit, :update]
 
   def index

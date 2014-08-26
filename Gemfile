@@ -20,6 +20,7 @@ gem 'jquery.fileupload-rails'
 gem 'aasm'
 gem 'whenever', :require => false
 gem 'cancancan', '~> 1.9'
+gem 'ransack'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

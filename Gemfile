@@ -19,6 +19,7 @@ gem 'paperclip', '~> 4.1'
 gem 'jquery.fileupload-rails'
 gem 'aasm'
 gem 'whenever', :require => false
+gem 'cancancan', '~> 1.9'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

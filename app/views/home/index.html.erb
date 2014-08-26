@@ -1,5 +1,27 @@
 <h3>Home</h3>
 
+<%= search_form_for @search, url: root_url do |f| %>
+  <div class="field">
+    <%= f.label :title_cont, "Search by title / description" %>
+    <%= f.search_field :title_or_description_cont %>
+  </div>
+  <div class="field">
+    <%= f.label "select category for search" %>
+    <%= f.select(:category_id_cont, Category.all.map { |category| [category.name, category.id] } .unshift(" ")) %>
+  </div>
+  <div class="field">
+    <%= f.label "select type for search" %>
+    <%= f.select(:type_id_cont, Type.all.map { |type| [type.name, type.id] } .unshift(" ")) %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+
+<tr>
+  <th><%= sort_link(@search, :title, "Title") %></th>
+  <th><%= sort_link(@search, :updated_at, "Published date") %></th>
+  <th><%= sort_link(@search, :price, "Price") %></th>
+</tr>
 <% if @adverts.present? %>
   <% @adverts.each do |advert| %>
     <%= render 'adverts/advert', advert: advert %>

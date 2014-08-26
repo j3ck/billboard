@@ -41,4 +41,13 @@ class Advert < ActiveRecord::Base
       advert.archive!
     end
   end
+
+  private
+    ransacker :category_id do
+      Arel::Nodes::SqlLiteral.new("to_char(\"#{table_name}\".\"category_id\", '99999')")
+    end
+
+    ransacker :type_id do
+      Arel::Nodes::SqlLiteral.new("to_char(\"#{table_name}\".\"type_id\", '99999')")
+    end
 end

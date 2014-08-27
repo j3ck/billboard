@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery.fileupload
 //= require jquery_ujs
+//= require sandstone/loader
+//= require sandstone/bootswatch
 //= require turbolinks
 //= require_tree .

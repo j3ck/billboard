@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :types, only: [:index, :show]
   resources :categories, only: [:index, :show]
 
-  devise_for :users, path: ""
+  devise_for :users, path: "", :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :adverts do
     member do
       get 'in_moderate'

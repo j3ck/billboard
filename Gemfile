@@ -22,6 +22,11 @@ gem 'whenever', :require => false
 gem 'cancancan', '~> 1.9'
 gem 'ransack'
 
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
+gem 'omniauth-google-oauth2'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'

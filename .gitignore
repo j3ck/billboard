@@ -20,3 +20,6 @@
 
 # Ignore database.yml config
 /config/database.yml
+
+# Ignore devise initializer
+config/initializers/devise.rb

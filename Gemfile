@@ -20,6 +20,9 @@ gem 'jquery.fileupload-rails'
 gem 'aasm'
 
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

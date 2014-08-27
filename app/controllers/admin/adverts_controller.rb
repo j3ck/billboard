@@ -1,4 +1,4 @@
-class Admin::AdvertsController < ApplicationController
+class Admin::AdvertsController < Admin::AdminController
   load_and_authorize_resource
   before_action :set_advert, only: [:in_reject, :in_publish]
 

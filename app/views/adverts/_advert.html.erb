@@ -2,7 +2,7 @@
   <%= advert.title %>
   <%= advert.description %>
   <%= advert.price %>
-  <%= advert.category.name %>
+  <%= advert.category.name if advert.category %>
   <%= advert.type.name %>
   <%= render 'adverts/shared/events', advert: advert %>
 </div>

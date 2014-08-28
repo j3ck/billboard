@@ -4,6 +4,8 @@ jQuery ->
     $('.test').append(data.form_html)
     $('.new_advert_wrapper').hide().fadeIn()
 
+    $('.modal').show()
+
     $('#image_data').fileupload
       done: (e, data)->
         $(".images_wrapper").append(data.result.image_html)

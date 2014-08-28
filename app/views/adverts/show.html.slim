@@ -1,0 +1,20 @@
+=render 'adverts/shared/events', advert: @advert
+h3 = @advert.title
+ul class="list-inline"
+  - if @advert.category
+    li
+      | Category: 
+      span class="label label-primary" = @advert.category.name
+  li
+    p
+      | Type: 
+      span class="label label-primary" = @advert.type.name.capitalize
+  li
+    p
+      | Price: 
+      strong = @advert.price
+p = @advert.description
+
+= render @advert.images
+p
+  = link_to 'Back', adverts_path, class:"btn btn-default btn-sm"

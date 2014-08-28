@@ -13,7 +13,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+  padding-top: 70px;
 }
 article,
 aside,
@@ -6214,7 +6214,7 @@ input:focus,
 }
 .input-sm,
 .form-horizontal .form-group-sm .form-control {
-  padding: 15px 10px;
+  /*padding: 15px 10px;*/
 }
 .nav {
   font-size: 11px;

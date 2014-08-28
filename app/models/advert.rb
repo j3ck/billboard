@@ -30,7 +30,7 @@ class Advert < ActiveRecord::Base
     end
 
     event :newest do
-      transitions from: [:published, :rejected, :moderated, :archived], to: :template
+      transitions from: [:published, :rejected, :moderated, :archived, :template], to: :template
     end
   end
 

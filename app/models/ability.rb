@@ -16,8 +16,7 @@ class Ability
         can :in_archive, Advert, user_id:  user.id, state: "published"
         can :in_newest, Advert, user_id:  user.id, state: ["published", "rejected", "moderated", "archived"]
 
-        can :create, Image
-        can :destroy, Image, advert_id: user.advert_ids
+        can [:create, :destroy], Image
       end
     end
   end

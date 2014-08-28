@@ -1,0 +1,13 @@
+=render 'home/search'
+h1 Published adverts
+
+| Sort by: 
+= sort_link(@search, :title, "Title ")
+= sort_link(@search, :updated_at, "Published date ")
+= sort_link(@search, :price, "Price ")
+
+- if @adverts.present?
+  div class="container"
+    = render @adverts
+- else
+  p empty

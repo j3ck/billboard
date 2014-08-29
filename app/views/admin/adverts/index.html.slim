@@ -1,0 +1,13 @@
+h2 Adverts await moderation
+table class="table table-hover"
+  thead
+    tr
+      th = sort_link(@search, :title, "Title ")
+      th Description
+      th = sort_link(@search, :price, "Price ")
+      th = sort_link(@search, :category, "Categroy ")
+      th = sort_link(@search, :type, "Type ")
+      th = sort_link(@search, :updated_at, "Posted by")
+      th
+      th
+  = render @adverts

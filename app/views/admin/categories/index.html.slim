@@ -1,0 +1,5 @@
+div class="container col-md-3 col-md-offset-4"
+  h3 Categories
+  p = link_to "New category", new_admin_category_path, class:"btn btn-default btn-sm get_modal", remote: true
+  ul class="list-group categories_wrapper"
+    = render @categories

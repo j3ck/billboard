@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'adverts#index'
     resources :categories, only: [:index, :new, :edit, :create, :update]
-    resources :adverts, only: :index do
+    resources :adverts, only: [:index, :show] do
       member do
         get 'in_reject'
         get 'in_publish'

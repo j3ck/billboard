@@ -4,7 +4,7 @@ class Ability
   def initialize(user, admin, namespace)
     if namespace == "Admin"
       if admin.kind_of? Admin
-        can [:index, :in_publish, :in_reject], Advert
+        can [:index, :in_publish, :in_reject, :show], Advert
         can [:index, :new, :edit, :create, :update], Category
         can [:index, :user_adverts_with_state ], User
       end

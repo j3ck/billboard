@@ -8,20 +8,8 @@ div class="modal" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby
             span class="sr-only" Close
         h4 class="modal-title" id="myModalLabel" Show advert full info
       div class="modal-body"
-        = form_for [:admin, category], remote: true, "data-type" => "json" do |f|
-          - if category.errors.any?
-            div id="error_explanation"
-              h2
-                = pluralize(category.errors.count, "error")
-                | prohibited this category from being saved:
-              ul
-              - category.errors.full_messages.each do |message|
-                li = message
-
-          div class="field"
-            = f.label :name
-            br
-            = f.text_field :name
+        = simple_form_for [:admin, category], remote: true, "data-type" => "json" do |f|
+          = f.error_notification
+          = f.input :name, autofocus: true
           div class="modal-footer"
-            div class="actions"
-              = f.submit
+            = f.submit class:"btn btn-success"

@@ -3,6 +3,12 @@ html
   head
     title Billboard
     = stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'devise', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = yield
+    div.container
+      - flash.each do |name, msg|
+        = content_tag :div, class: (name == :notice ? "alert alert-dismissable alert-success" : "alert alert-dismissable alert-danger") do
+          button type="button" class="close" data-dismiss="alert" ×
+          = msg
+      = yield

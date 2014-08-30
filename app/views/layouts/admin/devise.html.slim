@@ -7,8 +7,5 @@ html
     = csrf_meta_tags
   body
     div.container
-      - flash.each do |name, msg|
-        = content_tag :div, class: (name == :notice ? "alert alert-dismissable alert-success" : "alert alert-dismissable alert-danger") do
-          button type="button" class="close" data-dismiss="alert" ×
-          = msg
+      = render 'layouts/shared/flash'
       = yield

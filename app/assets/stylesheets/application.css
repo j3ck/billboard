@@ -17,3 +17,7 @@
  body {
    padding-top: 70px;
  }
+
+ .sign-left {
+  border-right: 1px solid #ddd !important;
+ }

@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    title Billboard
+    = stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    = yield

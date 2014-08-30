@@ -12,5 +12,8 @@
  *
  *= require_self
  *= require bootstrap
- *= require advert
+ *= require application/advert
  */
+ body {
+   padding-top: 70px;
+ }

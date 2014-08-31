@@ -6,6 +6,8 @@ class Advert < ActiveRecord::Base
   belongs_to :type
   has_many :images, dependent: :destroy
 
+  validates :title, presence: true
+
   aasm column: :state do
     state :template, initial: true
     state :moderated

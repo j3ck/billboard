@@ -15,7 +15,7 @@ div class="advert_wrapper"
         strong = advert.price
   p = advert.description.truncate(150, separator: ' ')
 
-  div class="images_wrapper"
+  div class="img_wrapper"
     = render advert.images.limit(5)
 
   p = render 'adverts/shared/events', advert: advert

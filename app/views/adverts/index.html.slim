@@ -5,7 +5,7 @@ ul class="nav nav-pills"
         = state
         span class="badge" = adverts_count("#{state}") if adverts_count("#{state}") > 0
 br
-= link_to 'New Advert', new_advert_path, remote: true, "data-type" => "json", id:"add_advert", class:"btn btn-primary btn-sm"
+= link_to 'New Advert', new_advert_path, class:"btn btn-primary btn-sm"
 h1 Listing adverts
 div class="test"
 = render @adverts

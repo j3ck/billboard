@@ -23,6 +23,7 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 
 gem 'twitter-bootswatch-rails', '~> 3.2.0'
 gem 'twitter-bootswatch-rails-helpers'

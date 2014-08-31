@@ -1,0 +1,15 @@
+=render 'home/search'
+h1 Published adverts
+
+| Sort by: 
+= sort_link(@search, :title, "Title ")
+= sort_link(@search, :updated_at, "Published date ")
+= sort_link(@search, :price, "Price ")
+
+- if @adverts.present?
+  div class="container"
+    = will_paginate @adverts, renderer: BootstrapPagination::Rails
+    = render @adverts
+    = will_paginate @adverts, renderer: BootstrapPagination::Rails
+- else
+  p empty

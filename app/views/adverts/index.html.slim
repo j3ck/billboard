@@ -1,0 +1,13 @@
+ul class="nav nav-pills"
+  - %w(template published moderated rejected archived).each do |state|
+    = content_tag :li, class: ("active" if params[:state] == state) do
+      = link_to adverts_path(state: "#{state}")
+        = state
+        span class="badge" = adverts_count("#{state}") if adverts_count("#{state}") > 0
+br
+= link_to 'New Advert', new_advert_path, class:"btn btn-primary btn-sm"
+h1 Listing adverts
+div class="test"
+= will_paginate @adverts, renderer: BootstrapPagination::Rails
+= render @adverts
+= will_paginate @adverts, renderer: BootstrapPagination::Rails

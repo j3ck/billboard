@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  devise_for :admins, controllers: { sessions: "admin/sessions" }
   resources :images, only: [:create, :destroy]
   resources :types, only: [:index, :show]
   resources :categories, only: [:index, :show]
@@ -16,9 +14,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  devise_for :admins, path: "admin", controllers: { sessions: "admin/sessions" }
   namespace :admin do
+    root 'adverts#index'
     resources :categories, only: [:index, :new, :edit, :create, :update]
-    resources :adverts, only: :index do
+    resources :adverts, only: [:index, :show] do
       member do
         get 'in_reject'
         get 'in_publish'

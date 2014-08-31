@@ -6,6 +6,8 @@ class Advert < ActiveRecord::Base
   belongs_to :type
   has_many :images, dependent: :destroy
 
+  validates :title, presence: true
+
   aasm column: :state do
     state :template, initial: true
     state :moderated
@@ -30,7 +32,7 @@ class Advert < ActiveRecord::Base
     end
 
     event :newest do
-      transitions from: [:published, :rejected, :moderated, :archived], to: :template
+      transitions from: [:published, :rejected, :moderated, :archived, :template], to: :template
     end
   end
 

@@ -1,0 +1,21 @@
+div class="advert_wrapper"
+  ul class="list-inline"
+    h3 = advert.title
+    - if advert.category
+      li
+        | Category: 
+        span class="label label-primary" = advert.category.name
+    li
+      p
+        | Type: 
+        span class="label label-primary" = advert.type.name.capitalize
+    li
+      p
+        | Price: 
+        strong = advert.price
+  p = advert.description.truncate(150, separator: ' ')
+
+  div class="img_wrapper"
+    = render advert.images.limit(5)
+
+  p = render 'adverts/shared/events', advert: advert

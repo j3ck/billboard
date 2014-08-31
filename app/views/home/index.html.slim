@@ -8,6 +8,8 @@ h1 Published adverts
 
 - if @adverts.present?
   div class="container"
+    = will_paginate @adverts, renderer: BootstrapPagination::Rails
     = render @adverts
+    = will_paginate @adverts, renderer: BootstrapPagination::Rails
 - else
   p empty

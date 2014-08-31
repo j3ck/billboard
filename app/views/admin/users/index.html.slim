@@ -9,3 +9,4 @@ table class="table table-hover"
       th
       th
   = render @users
+= will_paginate @users, renderer: BootstrapPagination::Rails

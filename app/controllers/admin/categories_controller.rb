@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::AdminController
   respond_to :json
 
   def index
-    @categories = Category.all
+    @categories = Category.all.paginate(page: params[:page], per_page: 20)
   end
 
   def new

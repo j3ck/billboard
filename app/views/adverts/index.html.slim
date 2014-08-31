@@ -8,4 +8,6 @@ br
 = link_to 'New Advert', new_advert_path, class:"btn btn-primary btn-sm"
 h1 Listing adverts
 div class="test"
+= will_paginate @adverts, renderer: BootstrapPagination::Rails
 = render @adverts
+= will_paginate @adverts, renderer: BootstrapPagination::Rails

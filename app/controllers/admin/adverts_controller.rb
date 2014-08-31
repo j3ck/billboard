@@ -16,7 +16,7 @@ class Admin::AdvertsController < Admin::AdminController
   def index
     @adverts = Advert.where(state: :moderated)
     @search = @adverts.search(params[:q])
-    @adverts = @search.result
+    @adverts = @search.result.paginate(page: params[:page], per_page: 20)
   end
 
   def show

@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::AdminController
   respond_to :json
 
   def index
-    @users = User.all
+    @users = User.all.paginate(page: params[:page], per_page: 20)
   end
 
   def user_adverts_with_state

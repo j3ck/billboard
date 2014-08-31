@@ -11,3 +11,4 @@ table class="table table-hover"
       th
       th
   = render @adverts
+  = will_paginate @adverts, renderer: BootstrapPagination::Rails

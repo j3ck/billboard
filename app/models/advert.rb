@@ -7,6 +7,7 @@ class Advert < ActiveRecord::Base
   has_many :images, dependent: :destroy
 
   validates :title, presence: true
+  validates :category_id, presence: true
 
   aasm column: :state do
     state :template, initial: true

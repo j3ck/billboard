@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.fileupload
 //= require jquery_ujs
+//= require chosen.jquery.min
 //
 //= require twitter/bootstrap/transition
 //= require twitter/bootstrap/alert

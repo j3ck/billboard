@@ -7,3 +7,7 @@ jQuery ->
     img_div = ".image-" + data.image_id
     $(e.target).closest(img_div).remove()
   )
+
+  $(".chosen").chosen
+    allow_single_deselect: true,
+    width: "95%"

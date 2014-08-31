@@ -17,7 +17,7 @@ div class="new_advert_wrapper"
     - unless Category.all.empty?
       div class="form-group"
         = f.label :category
-          = f.select(:category_id, Category.all.map { |category| [category.name, category.id] }, {}, {class:"form-control"})
+        = f.select(:category_id, Category.all.map { |category| [category.name, category.id] }, {}, {class:"chosen form-control input-sm col-xs-4"})
       div class="form-group"
         = f.label :type
           = f.select(:type_id, Type.all.map { |type| [type.name, type.id] }, {}, {class:"form-control"})

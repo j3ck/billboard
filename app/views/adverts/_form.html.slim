@@ -1,9 +1,11 @@
 div class="new_advert_wrapper"
   = form_for (@advert.images.build), html: { multipart: true } do |f|
-    span class="btn btn-info btn-sm btn-file"
-      | Add image file
+    span class="btn btn-info btn-sm btn-file" id="upl"
+      span class="img-btn-text" Add image file
       = f.file_field :data, multiple: true, name: 'image[data]'
-
+  br
+  div class="progress progress-striped active"
+    div class="progress-bar" style="width: 0%"
   = simple_form_for(@advert) do |f|
     div class="images_wrapper"
       - if @advert.images.present?

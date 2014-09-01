@@ -42,3 +42,8 @@
      cursor: inherit;
      display: block;
  }
+
+ .bar {
+     height: 18px;
+     background: green;
+ }

@@ -10,6 +10,6 @@ div class="modal" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby
       div class="modal-body"
         = simple_form_for [:admin, category], remote: true, "data-type" => "json" do |f|
           = f.error_notification
-          = f.input :name, autofocus: true
+          = f.input :name, autofocus: true, input_html: { maxlength: 50 }
           div class="modal-footer"
             = f.submit class:"btn btn-success"

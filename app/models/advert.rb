@@ -7,8 +7,10 @@ class Advert < ActiveRecord::Base
   has_many :images, dependent: :destroy
   has_many :logs, dependent: :destroy
 
-  validates :title, presence: true
-  validates :category_id, presence: true
+  validates :title, :category_id, :description, :user_id, :type_id, :state, presence: true
+  validates :title, length: { maximum: 100 }
+  validates :description, length: { maximum: 500 }
+  validates :price, numericality: true
 
   aasm column: :state do
     state :template, initial: true

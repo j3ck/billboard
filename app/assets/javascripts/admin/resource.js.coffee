@@ -7,5 +7,5 @@ jQuery ->
   )
 
   $(document).on('click', '.close', () ->
-    $('.modal').remove()
+    $(this).closest('.modal').remove()
   )

@@ -22,4 +22,4 @@ div class="modal" id="advertModal" tabindex="-1" role="dialog" aria-labelledby="
         = render :partial => "admin/images/image", :collection => advert.images, :as => 'image'
       div class="modal-footer"
         = link_to "Publish", in_publish_admin_advert_path(advert), remote: true, class:"btn btn-success action_publish"
-        = link_to "Reject", in_reject_admin_advert_path(advert), remote: true, class:"btn btn-danger adction_reject"
+        = link_to "Reject", new_admin_advert_log_path(advert), remote: true, class:"btn btn-danger get_modal"

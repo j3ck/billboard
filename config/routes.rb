@@ -19,8 +19,8 @@ Rails.application.routes.draw do
     root 'adverts#index'
     resources :categories, only: [:index, :new, :edit, :create, :update]
     resources :adverts, only: [:index, :show] do
+      resources :logs, only: [:new, :create, :index]
       member do
-        get 'in_reject'
         get 'in_publish'
       end
     end

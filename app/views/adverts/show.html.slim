@@ -18,3 +18,8 @@ p = @advert.description
 = render @advert.images
 p
   = link_to 'Back', :back, class:"btn btn-default btn-sm"
+
+- if @advert.user == current_user
+  div
+    h3 Logs
+    = render @advert.logs

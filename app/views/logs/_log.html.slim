@@ -1,0 +1,16 @@
+dl
+  dt 
+    = log.editor_role
+    small = log.created_at
+  dd
+  dt Action:
+  dd = log.action
+  dd
+    |  Of 
+    = log.last_state
+    |  in 
+    = log.current_state
+  - if log.comment.present?
+    dt With comment:
+    dd = log.comment
+

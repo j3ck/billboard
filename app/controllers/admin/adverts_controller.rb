@@ -1,12 +1,7 @@
 class Admin::AdvertsController < Admin::AdminController
   load_and_authorize_resource
-  before_action :set_advert, only: [:in_reject, :in_publish]
+  before_action :set_advert, only: [:in_publish]
   respond_to :json
-
-  def in_reject
-    @advert.reject! if @advert.may_reject?
-    redirect_to admin_root_url
-  end
 
   def in_publish
     @advert.publish! if @advert.may_publish?

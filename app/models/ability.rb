@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user, admin, namespace)
+    can :show, Advert
     if namespace == "Admin"
       if admin.kind_of? Admin
         can [:index, :show], Advert

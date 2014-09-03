@@ -1,6 +1,8 @@
 class AdvertsController < ApplicationController
   load_and_authorize_resource
   before_action :set_advert, only: [:in_moderate, :in_archive, :in_newest, :show, :edit, :update]
+  before_action :state, only: [:in_moderate, :in_archive, :in_newest, :update, :create]
+  after_action :add_log, only: [:in_moderate, :in_archive, :in_newest, :update, :create]
 
   def in_moderate
     @advert.moderate! if @advert.may_moderate?
@@ -53,6 +55,16 @@ class AdvertsController < ApplicationController
   end
 
   private
+
+    def state
+      @state = @advert.state
+    end
+
+    def add_log
+      @log = @advert.logs.build(editor_id: current_user.id, editor_role: "User", action: action_name, last_state: @state, current_state: @advert.state)
+      @log.save(validate: false)
+    end
+
     def set_advert
       @advert = Advert.find(params[:id])
     end

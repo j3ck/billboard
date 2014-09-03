@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery.fileupload
 //= require jquery_ujs
 //= require chosen.jquery.min

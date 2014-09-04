@@ -14,9 +14,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  devise_for :admins, path: "admin", controllers: { sessions: "admin/sessions" } do
-    post 'edit' => 'admin/registrations#edit'
-  end
+  devise_for :admins, path: "admin", controllers: { sessions: "admin/sessions" }, :skip => [:registrations]
+    as :admin do
+      get 'admin/edit' => 'admin/registrations#edit', :as => 'edit_admin_registration'
+      put 'admin/' => 'admin/registrations#update', :as => 'admin_registration'
+    end
   namespace :admin do
     root 'adverts#index'
     resources :categories, only: [:index, :new, :edit, :create, :update]

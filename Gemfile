@@ -40,6 +40,9 @@ group :development, :test do
   gem 'capybara'
   gem 'spring'
 
+  gem 'bullet'
+  gem "rubycritic", :require => false
+
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'

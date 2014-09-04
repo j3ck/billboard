@@ -9,7 +9,6 @@ class Advert < ActiveRecord::Base
 
   validates :title, :category_id, :description, :user_id, :type_id, :state, presence: true
   validates :title, length: { maximum: 100 }
-  validates :description, length: { maximum: 500 }
   validates :price, numericality: true
 
   aasm column: :state do

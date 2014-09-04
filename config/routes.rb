@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :types, only: [:index, :show]
   resources :categories, only: [:index, :show]
 
-  devise_for :users, path: "", :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, path: "", :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   resources :adverts do
     member do
       get 'in_moderate'
@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  devise_for :admins, path: "admin", controllers: { sessions: "admin/sessions" }
+  devise_for :admins, path: "admin", controllers: { sessions: "admin/sessions" } do
+    post 'edit' => 'admin/registrations#edit'
+  end
   namespace :admin do
     root 'adverts#index'
     resources :categories, only: [:index, :new, :edit, :create, :update]

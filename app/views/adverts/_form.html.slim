@@ -14,7 +14,7 @@ div class="new_advert_wrapper"
         - if params[:advert][:image_ids]
           = render partial: 'images/image_preview', collection: Image.find(params[:advert][:image_ids]), as: 'image'
     = f.input :title, autofocus: true, input_html: { maxlength: 100 }
-    = f.input :description, input_html: { maxlength: 500 }
+    = f.input :description
     = f.input :price, input_html: { maxlength: 10 }, as: :decimal
     - unless Category.all.empty?
       div class="form-group"

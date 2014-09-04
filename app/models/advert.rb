@@ -2,7 +2,7 @@ class Advert < ActiveRecord::Base
   include AASM
 
   belongs_to :user
-  belongs_to :category
+  belongs_to :category, counter_cache: true
   belongs_to :type
   has_many :images, dependent: :destroy
   has_many :logs, dependent: :destroy

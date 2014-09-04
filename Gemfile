@@ -41,6 +41,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'bullet'
+  gem "rubycritic", :require => false
 
   gem 'better_errors'
   gem 'binding_of_caller'

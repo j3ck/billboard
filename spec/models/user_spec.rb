@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe User, type: :model do
 
-  subject{ FactoryGirl.build(:user}
+  subject{ FactoryGirl.build(:user)}
   it { should be_valid }
 
   it { should respond_to(:email) }
@@ -17,11 +17,6 @@ describe User, type: :model do
 
   it "is not valid if password is empty" do
     user = FactoryGirl.build(:user, password: nil)
-    expect(user).not_to be_valid
-  end
-
-  it "is not valid if password_confirmation is empty" do
-    user = FactoryGirl.build(:user, password_confirmation: nil)
     expect(user).not_to be_valid
   end
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Category, type: :model do
 
-  subject{ FactoryGirl.build(:category}
+  subject{ FactoryGirl.build(:category)}
   it { should be_valid }
 
   it { should respond_to(:name) }
@@ -14,7 +14,7 @@ describe Category, type: :model do
   end
 
   it "is not valid if name is too long" do
-    str = "a"*31
+    str = "a"*51
     category = FactoryGirl.build(:category, name: str)
     expect(category).not_to be_valid
   end

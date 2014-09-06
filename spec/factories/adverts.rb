@@ -8,5 +8,8 @@ FactoryGirl.define do
     similique odit quia reiciendis maxime facilis, perferendis nihil, non numquam!
     Iure eum, voluptatem nulla. Quidem, nihil, repellendus distinctio vel ut repudiandae iure."
     price 100
+    type_id 1
+    category_id 2
+    user_id 1
   end
 end

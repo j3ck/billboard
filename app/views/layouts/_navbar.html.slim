@@ -14,10 +14,11 @@ div class="navbar navbar-inverse navbar-fixed-top" role="navigation"
           = link_to "Adverts", adverts_path
     ul class="nav navbar-nav pull-right"
       - if user_signed_in?
-        li = link_to "Edit profile", edit_user_registration_path
+        = content_tag :li, class: ("active" if params[:controller] == "users/registrations" && params[:action] == "edit")
+          = link_to "Edit profile", edit_user_registration_path
         li = link_to "Sign out", destroy_user_session_path, method: :delete
       - else
         = content_tag :li, class: ("active" if params[:controller] == "devise/sessions" && params[:action] == "new")
           = link_to "Sign in", new_user_session_path
-        = content_tag :li, class: ("active" if params[:controller] == "devise/registrations" && params[:action] == "new")
+        = content_tag :li, class: ("active" if params[:controller] == "users/registrations" && params[:action] == "new")
           = link_to "Sign up", new_user_registration_path

@@ -7,6 +7,7 @@ div class="new_advert_wrapper"
   div class="progress progress-striped active"
     div class="progress-bar" style="width: 0%"
   = simple_form_for(@advert) do |f|
+    = f.error_notification
     div class="images_wrapper"
       - if @advert.images.present?
           = render partial: 'images/image_preview', collection: @advert.images.order(id: :asc), as: 'image'
@@ -22,5 +23,5 @@ div class="new_advert_wrapper"
         = f.select(:category_id, Category.all.map { |category| [category.name, category.id] }, {}, {class:"chosen form-control input-sm col-xs-4"})
       div class="form-group"
         = f.label :type
-          = f.select(:type_id, Type.all.map { |type| [type.name, type.id] }, {}, {class:"form-control"})
+        = f.select(:type_id, Type.all.map { |type| [type.name, type.id] }, {}, {class:"form-control"})
       = f.submit class:"btn btn-success btn-sm"

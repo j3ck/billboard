@@ -10,7 +10,7 @@ class AdvertsController < ApplicationController
   end
 
   def in_archive
-    @advert.archive! if @advert.may_in_archive?
+    @advert.archive! if @advert.may_archive?
     redirect_to adverts_path(state: 'archived')
   end
 

@@ -5,7 +5,7 @@ jQuery ->
       $('.img-btn-text').text("Uploading...")
       $('.btn-file').addClass('disabled')
     done: (e, data)->
-      if data.is_create
+      if data.result.is_create
         $(".images_wrapper").append(data.result.image_html)
         reset()
       else

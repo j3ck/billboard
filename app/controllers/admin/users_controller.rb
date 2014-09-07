@@ -8,7 +8,7 @@ class Admin::UsersController < Admin::AdminController
 
   def user_adverts_with_state
     @adverts = Advert.where(user_id: params[:id], state: params[:state])
-    adverts = render_to_string( @adverts, :formats => [:html] )
-    respond_with :adverts => adverts
+    adverts = render_to_string( partial: 'admin/users/user_adverts', :formats => [:html], locals: { adverts: @adverts } )
+    respond_with :html => adverts
   end
 end

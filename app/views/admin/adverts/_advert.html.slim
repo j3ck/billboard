@@ -1,0 +1,14 @@
+tr class="warning advert-#{advert.id}"
+    td = link_to advert.title, admin_advert_path(advert), remote: true, class:"get_modal"
+    td title="#{advert.description}" = advert.description.truncate(50, separator: ' ')
+    td = advert.price
+    td
+      - if advert.category.present?
+        = advert.category.name
+      -else
+        | Empty
+    td = advert.type.name
+    td = advert.updated_at
+    td = link_to "Publish", in_publish_admin_advert_path(advert), remote: true, class:"btn btn-success btn-xs action_publish"
+    td = link_to "Reject", new_admin_advert_log_path(advert), remote: true, class:"btn btn-danger btn-xs get_modal"
+    td = advert.state

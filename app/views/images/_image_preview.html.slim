@@ -1,0 +1,4 @@
+div class="image image-#{image.id}"
+  = link_to '×', image, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class:"delete-image label label-danger"
+  = image_tag image.data.url(:small)
+  = hidden_field_tag "advert[image_ids][]", image.id, id: dom_id(image)

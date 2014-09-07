@@ -1,0 +1,25 @@
+div class="modal" id="advertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        button type="button" class="close" data-dismiss="modal"
+          span aria-hidden="true"
+            | &times;
+            span class="sr-only" Close
+        h4 class="modal-title" id="myModalLabel" Show advert full info
+      div class="modal-body"
+        h4 = advert.title
+        p = advert.description
+        p
+          | Price: 
+          = advert.price
+        /p
+        /  | Category 
+        /  = advert.category.name
+        p 
+          | Type: 
+          = advert.type.name
+        = render :partial => "admin/images/image", :collection => advert.images, :as => 'image'
+      div class="modal-footer"
+        = link_to "Publish", in_publish_admin_advert_path(advert), remote: true, class:"btn btn-success action_publish"
+        = link_to "Reject", new_admin_advert_log_path(advert), remote: true, class:"btn btn-danger get_modal"

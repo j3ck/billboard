@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - ruby-2.0.0-p451
+env:
+  - DB=postgresql
+script:
+  - bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - "psql -c 'create database billboard_test;' -U postgres"
+gemfile: Gemfile
+cache: 
+  bundler: true

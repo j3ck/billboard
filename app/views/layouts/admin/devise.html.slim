@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Billboard
+    = stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'devise', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    div.container
+      = render 'layouts/shared/flash'
+      = yield

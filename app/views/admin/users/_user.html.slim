@@ -1,0 +1,6 @@
+tr class="warning user-#{user.id}"
+    td = user.email
+    td = user.last_sign_in_at
+    td = link_to "Moderated", user_adverts_with_state_admin_user_path(id: user.id, state: "moderated"), remote: true, "data-type" => "json", class:"user_adverts get_modal"
+    td = link_to "Rejected", user_adverts_with_state_admin_user_path(id: user.id, state: "rejected"), remote: true, "data-type" => "json", class:"user_adverts get_modal"
+    td = link_to "Published", user_adverts_with_state_admin_user_path(id: user.id, state: "published"), remote: true, "data-type" => "json", class:"user_adverts get_modal"

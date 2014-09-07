@@ -1,0 +1,12 @@
+div class="user_adverts_wrapper"
+h2 Users
+table class="table table-hover"
+  thead
+    tr
+      th Email
+      th Last sign in
+      th
+      th
+      th
+  = render @users
+= will_paginate @users, renderer: BootstrapPagination::Rails

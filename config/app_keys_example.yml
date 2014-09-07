@@ -1,0 +1,13 @@
+omniauth:
+  facebook:
+    key: ''
+    secret: ''
+  twitter:
+    key: ''
+    secret: ''
+  vkontakte:
+    key: ''
+    secret: ''
+  google_oauth2:
+    key: ''
+    secret: ''

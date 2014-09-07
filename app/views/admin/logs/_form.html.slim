@@ -1,0 +1,15 @@
+div class="modal" id="logModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        button type="button" class="close" data-dismiss="modal"
+          span aria-hidden="true"
+            | &times;
+            span class="sr-only" Close
+        h4 class="modal-title" id="myModalLabel" Add comment to reject:
+      div class="modal-body"
+        = simple_form_for [:admin, advert, log], remote: true, "data-type" => "json" do |f|
+          = f.error_notification
+          = f.input :comment, autofocus: true, input_html: { maxlength: 500 }
+          div class="modal-footer"
+            = f.submit "Reject" ,class:"btn btn-danger"

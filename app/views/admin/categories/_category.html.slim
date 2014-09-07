@@ -1,0 +1,4 @@
+li class="list-group-item category-#{category.id}"
+  span class="badge" = category.adverts_count
+  = category.name
+  p = link_to "Edit", edit_admin_category_path(category), class:"btn btn-primary btn-xs get_modal", remote: true

@@ -25,6 +25,7 @@ gem 'therubyracer'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'jquery-turbolinks'
+gem 'faker'
 
 gem 'twitter-bootswatch-rails', '~> 3.2.0'
 gem 'twitter-bootswatch-rails-helpers'

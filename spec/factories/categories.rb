@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :category do
-    name "Lorem ipsum dolor sit amet."
+    name 'Lorem ipsum dolor sit amet.'
   end
 end

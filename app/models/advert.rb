@@ -43,9 +43,8 @@ class Advert < ActiveRecord::Base
     end
   end
 
-
   def self.to_archive_old_adverts
-    @adverts = Advert.where('state = ? AND updated_at <= ?', 'published', 1.day.ago )
+    @adverts = Advert.where('state = ? AND updated_at <= ?', 'published', 1.day.ago)
     @adverts.find_each do |advert|
       advert.archive!
     end

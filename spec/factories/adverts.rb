@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :advert do
-    title "Lorem ipsum dolor sit amet."
+    title 'Lorem ipsum dolor sit amet.'
     description "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     Molestias eveniet facere a praesentium quis ut harum, temporibus laborum
     similique odit quia reiciendis maxime facilis, perferendis nihil, non numquam!

@@ -37,23 +37,22 @@ class Admin::CategoriesController < Admin::AdminController
       form_html = string_form(@category)
     end
     render json: { create_status: is_create, form_html: form_html, category_html: category_html, id: @category.id }
-
   end
 
   private
-    def string_form(category)
-      render_to_string( partial: 'admin/categories/form', formats: [:html], locals: { category: category } )
-    end
+  def string_form(category)
+    render_to_string(partial: 'admin/categories/form', formats: [:html], locals: { category: category })
+  end
 
-    def string_category(category)
-      render_to_string( partial: 'admin/categories/category', formats: [:html], locals: { category: category } )
-    end
+  def string_category(category)
+    render_to_string(partial: 'admin/categories/category', formats: [:html], locals: { category: category })
+  end
 
-    def set_category
-      @category = Category.find(params[:id])
-    end
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
-    def category_params
-      params.require(:category).permit(:name)
-    end
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end

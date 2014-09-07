@@ -56,20 +56,20 @@ class AdvertsController < ApplicationController
 
   private
 
-    def state
-      @state = @advert.state
-    end
+  def state
+    @state = @advert.state
+  end
 
-    def add_log
-      @log = @advert.logs.build(editor_id: current_user.id, editor_role: "User", action: action_name, last_state: @state, current_state: @advert.state)
-      @log.save(validate: false)
-    end
+  def add_log
+    @log = @advert.logs.build(editor_id: current_user.id, editor_role: 'User', action: action_name, last_state: @state, current_state: @advert.state)
+    @log.save(validate: false)
+  end
 
-    def set_advert
-      @advert = Advert.find(params[:id])
-    end
+  def set_advert
+    @advert = Advert.find(params[:id])
+  end
 
-    def advert_params
-      params.require(:advert).permit(:title, :description, :price, :category_id, :type_id, {image_ids: []})
-    end
+  def advert_params
+    params.require(:advert).permit(:title, :description, :price, :category_id, :type_id, image_ids: [])
+  end
 end

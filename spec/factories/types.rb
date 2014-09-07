@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :type do
-    name "Loremipsum"
+    name 'Loremipsum'
   end
 end

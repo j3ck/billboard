@@ -16,12 +16,12 @@ class Admin::AdvertsController < Admin::AdminController
 
   def show
     @advert = Advert.find(params[:id])
-    advert_html = render_to_string( partial: 'admin/adverts/show', formats: [:html], locals: { advert: @advert } )
+    advert_html = render_to_string(partial: 'admin/adverts/show', formats: [:html], locals: { advert: @advert })
     respond_with html: advert_html
   end
 
   private
-    def set_advert
-      @advert = Advert.find(params[:id])
-    end
+  def set_advert
+    @advert = Advert.find(params[:id])
+  end
 end

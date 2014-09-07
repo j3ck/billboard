@@ -23,7 +23,7 @@ class AdvertsController < ApplicationController
     unless params[:state].present?
       params[:state] = 'template'
     end
-    @adverts = current_user.adverts.includes(:category, :type).where(state: params[:state]).paginate(page: params[:page], per_page: 5)
+    @adverts = current_user.adverts.stated(params[:state]).paginate(page: params[:page], per_page: 5)
   end
 
   def show

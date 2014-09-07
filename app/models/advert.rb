@@ -7,6 +7,10 @@ class Advert < ActiveRecord::Base
   has_many :images, dependent: :destroy
   has_many :logs, dependent: :destroy
 
+  scope :stated, -> state { includes(:category, :type).
+                                  where(state: state).
+                                  order(updated_at: :desc) }
+
   validates :title, :category_id, :description, :user_id, :type_id, :state, presence: true
   validates :title, length: { maximum: 100 }
   validates :price, numericality: true

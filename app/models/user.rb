@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :vkontakte, :twitter, :google_oauth2]
-  has_many :adverts
+  has_many :adverts, dependent: :destroy
 
   class << self
     def find_for_social_oauth(auth)

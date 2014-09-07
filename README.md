@@ -10,6 +10,20 @@ Test task for Twinslash
 
 [Heroku]:http://billboard-2014.herokuapp.com/
 
+Example admin:
+
+    email: admin@admin.com
+    password: 123123123
+Example user with seed:
+
+    email: user@user.com
+    password: 123123123
+Example user with populate task:
+
+    email: example-#{N}@user.com
+    password: 123123123
+>where N is the number from 1..30
+
 Setup
 =====
 

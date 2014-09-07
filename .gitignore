@@ -18,8 +18,7 @@
 # Ignore paperclip uploads
 /public/system/
 
-# Ignore database.yml config
+# Ignore yml configs
 /config/database.yml
+/config/app_keys.yml
 
-# Ignore devise initializer
-config/initializers/devise.rb

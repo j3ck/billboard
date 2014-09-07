@@ -230,12 +230,14 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
+  AppConfig.setup!(yaml: "#{Rails.root}/config/app_keys.yml")
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, "APP_ID", "APP_SECRET"
-  config.omniauth :twitter, "APP_ID", "APP_SECRET"
-  config.omniauth :vkontakte, "APP_ID", "APP_SECRET"
-  config.omniauth :google_oauth2, "APP_ID", "APP_SECRET"
+  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, AppConfig.omniauth['facebook']['key'], AppConfig.omniauth['facebook']['secret']
+  config.omniauth :twitter, AppConfig.omniauth['twitter']['key'], AppConfig.omniauth['twitter']['secret']
+  config.omniauth :vkontakte, AppConfig.omniauth['vkontakte']['key'], AppConfig.omniauth['vkontakte']['secret']
+  config.omniauth :google_oauth2, AppConfig.omniauth['google_oauth2']['key'], AppConfig.omniauth['google_oauth2']['secret']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

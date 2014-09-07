@@ -33,6 +33,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
 gem 'omniauth-google-oauth2'
+gem 'app_config'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

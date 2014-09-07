@@ -28,6 +28,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    app_config (2.5.3)
     arel (5.0.1.20140414130214)
     ast (2.0.0)
     axiom-types (0.1.1)
@@ -338,6 +339,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  app_config
   better_errors
   binding_of_caller
   bullet

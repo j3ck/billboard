@@ -12,10 +12,11 @@ Test task for Twinslash
 
 Setup
 =====
+
 ```sh
 git clone git@github.com:j3ck/billboard.git
 ```
-* 
+
 ```sh
 bundle install
 ```

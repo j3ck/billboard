@@ -21,4 +21,5 @@
 # Ignore yml configs
 /config/database.yml
 /config/app_keys.yml
+/config/dropbox.yml
 

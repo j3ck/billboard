@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'thin'
 gem 'devise'
 gem 'paperclip', '~> 4.1'
+gem "paperclip-dropbox", ">= 1.1.7"
 gem 'jquery.fileupload-rails'
 gem 'aasm'
 gem 'whenever', :require => false

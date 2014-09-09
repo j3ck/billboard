@@ -1,4 +1,4 @@
-namespace :db do
+namespace :billboard do
   desc "Fill database with sample data"
   task populate: :environment do
     Admin.create!(email: "admin@admin.com",

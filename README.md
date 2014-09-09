@@ -45,7 +45,7 @@ with full sample populate db
 ```sh
 rake db:create
 rake db:migrate
-rake db:populate
+rake billboard:populate
 ```
 * start whenever tasks
 ```sh

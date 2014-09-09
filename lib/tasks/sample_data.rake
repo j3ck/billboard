@@ -16,7 +16,7 @@ namespace :db do
       Category.create!(name: Faker::Lorem.word + n.to_s)
     end
 
-    %w(Sale Buy Exchange Service Vacation).each {|name| Type.create!(name: name)} 
+    %w(Sale Buy Exchange Service Vacation).each {|name| Type.create!(name: name)}
 
     states = %w(template moderated rejected published archived)
     100.times do |n|
@@ -58,7 +58,7 @@ namespace :db do
     pub_ids = Advert.where(state: "published").order(updated_at: :desc).limit(5).ids
     10.times do |n|
       advert_id = pub_ids.sample
-      data = File.new(Rails.root.to_s + "/spec/files/#{rand(1..5)}.jpg")
+      data = File.new(Rails.root.to_s + "/public/#{rand(1..5)}.jpg")
       Image.create!(advert_id: advert_id, data: data)
     end
   end

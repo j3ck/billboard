@@ -3,9 +3,6 @@ class Admin::LogsController < Admin::AdminController
   before_action :set_advert, only: [:create, :new]
   respond_to :json
 
-  def index
-  end
-
   def new
     @log = Log.new
     form_html = render_to_string(partial: 'admin/logs/form',

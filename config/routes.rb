@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   resources :images, only: [:create, :destroy]
-  resources :types, only: [:index, :show]
-  resources :categories, only: [:index, :show]
 
   devise_for :users, path: '', controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
   resources :adverts do
@@ -23,7 +21,7 @@ Rails.application.routes.draw do
     root 'adverts#index'
     resources :categories, only: [:index, :new, :edit, :create, :update]
     resources :adverts, only: [:index, :show] do
-      resources :logs, only: [:new, :create, :index]
+      resources :logs, only: [:new, :create]
       member do
         get 'in_publish'
       end

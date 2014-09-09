@@ -8,8 +8,7 @@ class Admin::AdvertsController < Admin::AdminController
   end
 
   def index
-    @adverts = Advert.stated('moderated')
-    @search = @adverts.search(params[:q])
+    @search = @adverts.stated('moderated').search(params[:q])
     @adverts = @search.result.paginate(page: params[:page], per_page: 20)
   end
 

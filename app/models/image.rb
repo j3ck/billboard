@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  has_attached_file :data, styles: { small: '100x100#', medium: '200x200#' }, storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml")
+  has_attached_file :data, styles: { small: '100x100#', medium: '200x200#' }, storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml"), path: ":style/:id_:filename"
   validates_attachment_content_type :data, content_type: ['image/jpg', 'image/jpeg', 'image/png']
   validates_attachment_size :data, less_than: 5.megabytes
   belongs_to :advert

@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/j3ck/billboard.svg?branch=develop)](https://travis-ci.org/j3ck/billboard)
+[![Build Status](https://travis-ci.org/j3ck/billboard.svg?branch=master)](https://travis-ci.org/j3ck/billboard)
 #Billboard
 
 ---

@@ -11,13 +11,13 @@ div class="modal" id="advertModal" tabindex="-1" role="dialog" aria-labelledby="
         h4 = advert.title
         p = advert.description
         p
-          | Price:
+          | Price: 
           = advert.price
         p
-          | Category
+          | Category: 
           = advert.category.name
         p
-          | Type:
+          | Type: 
           = advert.type.name
         = render partial: "admin/images/image", collection: advert.images, as: 'image'
       div class="modal-footer"

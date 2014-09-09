@@ -1,6 +1,5 @@
 class AdvertsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_advert, only: [:in_moderate, :in_archive, :in_newest, :show, :edit, :update]
   before_action :state, only: [:in_moderate, :in_archive, :in_newest, :update, :create]
   after_action :add_log, only: [:in_moderate, :in_archive, :in_newest, :update, :create]
 
@@ -20,9 +19,7 @@ class AdvertsController < ApplicationController
   end
 
   def index
-    unless params[:state].present?
-      params[:state] = 'template'
-    end
+    params[:state] = 'template' unless params[:state].present?
     @adverts = current_user.adverts.stated(params[:state]).paginate(page: params[:page], per_page: 5)
   end
 
@@ -30,7 +27,6 @@ class AdvertsController < ApplicationController
   end
 
   def new
-    @advert = Advert.new
   end
 
   def edit
@@ -65,9 +61,6 @@ class AdvertsController < ApplicationController
     @log.save(validate: false)
   end
 
-  def set_advert
-    @advert = Advert.find(params[:id])
-  end
 
   def advert_params
     params.require(:advert).permit(:title, :description, :price, :category_id, :type_id, image_ids: [])

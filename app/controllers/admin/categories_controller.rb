@@ -1,6 +1,5 @@
 class Admin::CategoriesController < Admin::AdminController
   load_and_authorize_resource
-  before_action :set_category, only: [:edit, :update]
   respond_to :json
 
   def index
@@ -8,7 +7,6 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def new
-    @category = Category.new
     form_html = string_form(@category)
     respond_with html: form_html
   end
@@ -19,7 +17,6 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def create
-    @category = Category.new(category_params)
     is_create = @category.save
     if is_create
       category_html = string_category(@category)
@@ -46,10 +43,6 @@ class Admin::CategoriesController < Admin::AdminController
 
   def string_category(category)
     render_to_string(partial: 'admin/categories/category', formats: [:html], locals: { category: category })
-  end
-
-  def set_category
-    @category = Category.find(params[:id])
   end
 
   def category_params

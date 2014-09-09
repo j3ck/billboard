@@ -1,7 +1,6 @@
 class ImagesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :image_params
   def create
-    @image = Image.create(image_params)
     is_create = @image.save
     if is_create
       image_html = render_to_string(partial: 'images/image_preview', formats: [:html], locals: { image: @image })

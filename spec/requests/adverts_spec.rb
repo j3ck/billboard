@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Adverts', type: :request do
+describe 'Adverts' do
 
   before do
     user = FactoryGirl.create(:user)

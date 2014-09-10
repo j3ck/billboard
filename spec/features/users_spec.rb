@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-describe 'User', type: :feature do
+feature 'User' do
 
   before do
     @user = FactoryGirl.create(:user)

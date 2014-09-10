@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Type, type: :model do
+describe Type do
 
   subject { FactoryGirl.build(:type) }
   it { should be_valid }

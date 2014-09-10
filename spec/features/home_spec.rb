@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-describe 'Home', type: :feature do
+feature 'Home' do
 
   before do
     @category = FactoryGirl.create(:category)

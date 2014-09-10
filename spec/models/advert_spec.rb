@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Advert, type: :model do
+describe Advert do
 
   subject { FactoryGirl.build(:advert) }
   it { should be_valid }

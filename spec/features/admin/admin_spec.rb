@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-describe 'Admin', type: :feature do
+feature 'Admin' do
 
   before do
     @admin = FactoryGirl.create(:admin)

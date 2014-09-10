@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-describe 'Admin::Adverts', type: :feature do
+feature 'Admin::Adverts' do
 
   before do
     @type = FactoryGirl.create(:type)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Category, type: :model do
+describe Category do
 
   subject { FactoryGirl.build(:category) }
   it { should be_valid }

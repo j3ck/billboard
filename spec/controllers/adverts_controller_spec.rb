@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe AdvertsController, type: :controller do
+describe AdvertsController do
 
   before do
     @user = FactoryGirl.create(:user)

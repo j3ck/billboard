@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-describe 'Adverts', type: :feature do
+feature 'Adverts' do
 
   describe 'adverts path guest' do
 

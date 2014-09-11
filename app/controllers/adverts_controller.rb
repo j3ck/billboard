@@ -3,20 +3,26 @@ class AdvertsController < ApplicationController
   before_action :state, only: [:in_moderate, :in_archive, :in_newest, :update, :create]
   after_action :add_log, only: [:in_moderate, :in_archive, :in_newest, :update, :create]
 
-  def in_moderate
-    @advert.moderate! if @advert.may_moderate?
-    redirect_to adverts_path(state: 'moderated')
+  def change_state
+    state_name = params[:state_to_change]
+    @advert.send("#{state_name}!") if @advert.send("may_#{state_name}?")
+    redirect_to adverts_path(state: state_name)
   end
 
-  def in_archive
-    @advert.archive! if @advert.may_archive?
-    redirect_to adverts_path(state: 'archived')
-  end
+  #def in_moderate
+  #  @advert.moderate! if @advert.may_moderate?
+  #  redirect_to adverts_path(state: 'moderated')
+  #end
 
-  def in_newest
-    @advert.newest! if @advert.may_newest?
-    redirect_to adverts_path(state: 'template')
-  end
+  #def in_archive
+  #  @advert.archive! if @advert.may_archive?
+  #  redirect_to adverts_path(state: 'archived')
+  #end
+
+  #def in_newest
+  #  @advert.newest! if @advert.may_newest?
+  #  redirect_to adverts_path(state: 'template')
+  #end
 
   def index
     params[:state] = 'template' unless params[:state].present?

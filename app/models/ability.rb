@@ -15,9 +15,10 @@ class Ability
       if user.kind_of? User
         can [:index, :new, :create, :show], Advert
         can [:edit, :update], Advert, user_id:  user.id
-        can :in_moderate, Advert, user_id:  user.id, state: 'template'
-        can :in_archive, Advert, user_id:  user.id, state: 'published'
-        can :in_newest, Advert, user_id:  user.id, state: %w(published rejected moderated archived)
+        can :change_state, Advert, user_id: user.id
+        #can :in_moderate, Advert, user_id:  user.id, state: 'template'
+        #can :in_archive, Advert, user_id:  user.id, state: 'published'
+        #can :in_newest, Advert, user_id:  user.id, state: %w(published rejected moderated archived)
 
         can [:create, :destroy], Image
       end

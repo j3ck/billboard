@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   devise_for :users, path: '', controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
   resources :adverts do
     member do
-      get 'in_moderate'
-      get 'in_archive'
-      get 'in_newest'
+      get 'change_state'
+      #get 'in_moderate'
+      #get 'in_archive'
+      #get 'in_newest'
     end
   end
 

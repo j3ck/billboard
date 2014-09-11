@@ -1,10 +1,15 @@
 div class="btn-group btn-group"
-  - if can? :in_moderate, advert
-    = link_to "Send for moderation", in_moderate_advert_path(advert), class:"btn btn-primary btn-sm"
-  - if can? :in_archive, advert
-    = link_to "Send in archive", in_archive_advert_path(advert), class:"btn btn-primary btn-sm"
-  - if can? :in_newest, advert
-    = link_to "Send in newest", in_newest_advert_path(advert), class:"btn btn-primary btn-sm"
+  - if can? :change_state, advert
+    - %w(moderate archive newest).each do |state|
+      -if advert.send("may_#{state}?")
+        = link_to "Send in #{state}", change_state_advert_path(advert, state_to_change: "#{state}"), class:"btn btn-primary btn-sm"
+
+  /- if can? :in_moderate, advert
+  /  = link_to "Send for moderation", in_moderate_advert_path(advert), class:"btn btn-primary btn-sm"
+  /- if can? :in_archive, advert
+  /  = link_to "Send in archive", in_archive_advert_path(advert), class:"btn btn-primary btn-sm"
+  /- if can? :in_newest, advert
+  /  = link_to "Send in newest", in_newest_advert_path(advert), class:"btn btn-primary btn-sm"
   - unless params[:action] == "show"
     = link_to 'Show', advert, class:"btn btn-info btn-sm"
   - if can? :edit, advert

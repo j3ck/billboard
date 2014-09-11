@@ -5,6 +5,8 @@
 
 Test task for Twinslash
 
+This branch used Cloudinary for image uploading.
+
 
 [Heroku]
 

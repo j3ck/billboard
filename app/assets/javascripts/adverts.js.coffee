@@ -10,7 +10,7 @@ jQuery ->
         reset()
       else
         $('#new_image').append(data.result.img_errs)
-        $('.image-error').delay( 2000 ).fadeOut( ()->
+        $('.image-error').delay( 3000 ).fadeOut( ()->
           $(this).remove()
         )
         reset()

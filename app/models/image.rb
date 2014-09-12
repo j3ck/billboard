@@ -1,8 +1,12 @@
+require 'file_size_validator'
 class Image < ActiveRecord::Base
-  has_attached_file :data, styles: { small: '100x100#', medium: '200x200#' }, storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml"), path: ":style/:id_:filename"
-  validates_attachment_content_type :data, content_type: ['image/jpg', 'image/jpeg', 'image/png']
-  validates_attachment_size :data, less_than: 5.megabytes
+  mount_uploader :data, DataUploader
   belongs_to :advert
+
+  validates :data,
+    file_size: {
+    maximum: 2.0.megabytes.to_i
+  }
 
   def self.destroy_images_a_without_advert_id
     Image.where(advert_id: nil).delete_all

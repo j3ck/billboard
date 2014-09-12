@@ -9,7 +9,7 @@ script:
   - bundle exec rake
 before_script:
   - cp config/database.yml.travis config/database.yml
-  - cp config/dropbox.yml.example config/dropbox.yml
+  - cp config/cloudinary.yml.example config/cloudinary.yml
   - "psql -c 'create database billboard_test;' -U postgres"
 gemfile: Gemfile
 cache:

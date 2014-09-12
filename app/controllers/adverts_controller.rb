@@ -5,8 +5,12 @@ class AdvertsController < ApplicationController
 
   def change_state
     state_name = params[:state_to_change]
-    @advert.send("#{state_name}!") if @advert.send("may_#{state_name}?")
-    redirect_to adverts_path(state: state_name)
+    if @advert.send("may_#{state_name}?")
+      @advert.send("#{state_name}!")
+      redirect_to adverts_path(state: state_name)
+    else
+      redirect_to root_url, alert: exception.message
+    end
   end
 
   #def in_moderate

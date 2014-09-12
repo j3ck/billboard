@@ -38,6 +38,7 @@ bundle install
 ```
 * configurate config/database.yml
 * configurate config/app_keys.yml
+* download config/cloudinary.yml
 * create database
 with seed data use
 ```sh

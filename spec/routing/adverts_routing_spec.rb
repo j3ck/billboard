@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AdvertsController do
+describe AdvertsController do
   describe 'routing' do
 
     it 'routes to #index' do

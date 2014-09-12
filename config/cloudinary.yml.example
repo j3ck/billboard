@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: bboard
+  api_key: '315328811787997'
+  api_secret: RfncXaiVFS_sXPwsnpF8V6p4fZ4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: bboard
+  api_key: '315328811787997'
+  api_secret: RfncXaiVFS_sXPwsnpF8V6p4fZ4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: bboard
+  api_key: '315328811787997'
+  api_secret: RfncXaiVFS_sXPwsnpF8V6p4fZ4
+  enhance_image_tag: true
+  static_image_support: false
